@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace MLAPI.Profiling
 {
@@ -11,9 +12,10 @@ namespace MLAPI.Profiling
         internal static void BeginNewTick()
         {
             s_TickId = Math.Max(s_TickId, 0);
+            s_TickId++;
             s_ProfilerData = new PerformanceTickData
             {
-                TickId = s_TickId++,
+                TickId = s_TickId,
             };
         }
 
